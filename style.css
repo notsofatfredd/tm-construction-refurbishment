@@ -104,30 +104,42 @@ h1 { margin: 0; max-width: 8ch; font: 400 clamp(4.2rem, 7.6vw, 8.6rem)/0.86 var(
 }
 
 @media (max-width: 47.99rem) {
-  .site-header { min-height: 7.25rem; padding-block: 0.8rem; align-items: flex-start; flex-direction: column; justify-content: center; gap: 0.35rem; }
+  .site-header { min-height: 6.5rem; padding-block: 0.7rem; align-items: flex-start; flex-direction: column; justify-content: center; gap: 0.2rem; }
+  .wordmark-tm { font-size: 1.7rem; }
   .site-header nav { width: 100%; gap: 0; }
   .site-header nav a { min-height: 2.75rem; padding: 0 1.15rem 0 0; }
-  .hero { display: flex; min-height: 0; flex-direction: column; }
-  .hero-copy { min-height: 36rem; padding: 4rem var(--page-pad) 2.5rem; }
-  h1 { max-width: 8ch; font-size: clamp(3.8rem, 18vw, 5.2rem); line-height: 0.88; }
-  .hero-note { max-width: 23rem; margin-top: 1.5rem; }
-  .hero-principles { padding-top: 3rem; }
-  .hero-image { height: min(80svh, 42rem); }
+  .hero { min-height: calc(100svh - 6.5rem); display: grid; grid-template: "hero-stack" minmax(39rem, calc(100svh - 6.5rem)) / 1fr; }
+  .hero-copy, .hero-image { grid-area: hero-stack; }
+  .hero-image { z-index: 0; height: auto; min-height: 0; border-left: 0; }
+  .hero-image::after { background: linear-gradient(180deg, rgba(9, 23, 38, 0.18) 0%, rgba(9, 23, 38, 0.48) 42%, rgba(9, 23, 38, 0.96) 100%); }
+  .hero-image::before { inset: 0.75rem; }
+  .hero-copy { z-index: 1; min-height: 0; padding: 3.5rem var(--page-pad) 2.5rem; justify-content: flex-end; background: transparent; }
+  .hero-copy::before { top: 2rem; }
+  h1 { max-width: 8ch; font-size: clamp(3.35rem, 15vw, 4.5rem); line-height: 0.89; }
+  .hero-note { max-width: 21rem; margin-top: 1.25rem; color: rgba(255, 253, 247, 0.84); }
+  .hero-principles { margin-top: 1.7rem; padding-top: 0; gap: 0.55rem 1rem; }
   .hero-image figcaption, .closing-image figcaption, .project-panel figcaption { left: 0.75rem; right: auto; bottom: 0.75rem; font-size: 0.72rem; }
-  .work-intro { display: flex; flex-direction: column-reverse; }
-  .work-intro-copy { min-height: 0; padding: 4.5rem var(--page-pad); }
-  .work-intro-copy h2 { font-size: clamp(2.8rem, 14vw, 4.3rem); }
-  .work-intro-image { min-height: 0; height: 34rem; }
-  .project-grid { display: grid; grid-template-columns: 1fr; grid-template-rows: none; }
-  .project-panel-large, .statement-solar, .project-panel-tall, .statement-sky, .project-panel-wide { grid-column: auto; display: block; }
-  .project-panel { height: 30rem; }
-  .project-panel-tall { height: 34rem; }
-  .statement-panel { min-height: 19rem; padding: 2rem var(--page-pad); }
-  .statement-panel p { font-size: 1.75rem; }
+  .hero-image figcaption { display: none; }
+  .work-intro { display: block; padding-bottom: 2.5rem; background: var(--solar); }
+  .work-intro-image { min-height: 0; height: 30rem; }
+  .work-intro-copy { position: relative; z-index: 2; width: calc(100% - 1.5rem); min-height: 0; margin: -4.5rem auto 0; padding: 3rem 1.5rem; border: 1px solid var(--solar-line); box-shadow: 0 1.25rem 3rem rgba(16, 35, 63, 0.12); }
+  .work-intro-copy h2 { max-width: 10ch; font-size: clamp(2.65rem, 12vw, 3.65rem); }
+  .project-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-template-rows: 27rem 14rem 20rem 29rem; }
+  .project-panel-large { display: block; grid-column: 1 / -1; grid-row: 1; }
+  .statement-solar { display: flex; grid-column: 1 / span 4; grid-row: 2; }
+  .project-panel-tall { display: block; grid-column: 4 / -1; grid-row: 2 / span 2; }
+  .statement-sky { display: flex; grid-column: 1 / span 3; grid-row: 3; }
+  .project-panel-wide { display: block; grid-column: 1 / -1; grid-row: 4; }
+  .project-panel { height: auto; }
+  .statement-panel { min-height: 0; padding: 1.4rem 1.1rem; }
+  .statement-panel::before { inset: 0.55rem; }
+  .statement-panel p { max-width: 11ch; font-size: clamp(1.05rem, 4.9vw, 1.35rem); }
+  .statement-panel p::after { width: 1.75rem; margin-top: 0.85rem; }
+  .project-panel figcaption { max-width: calc(100% - 1.5rem); }
   .closing { display: flex; min-height: 0; flex-direction: column; }
-  .closing-copy { min-height: 31rem; padding: 4.5rem var(--page-pad); }
-  .closing-copy h2 { font-size: clamp(2.3rem, 11vw, 3.4rem); }
-  .closing-image { height: 34rem; }
+  .closing-copy { min-height: 28rem; padding: 4rem var(--page-pad); }
+  .closing-copy h2 { font-size: clamp(2.15rem, 10vw, 3.15rem); }
+  .closing-image { height: 29rem; }
   .closing-sky { display: none; }
   .site-footer { min-height: 8rem; padding: 1.5rem var(--page-pad); display: flex; align-items: flex-start; flex-direction: column; justify-content: center; gap: 1rem; }
   .axiel-signature { align-self: flex-start; }
