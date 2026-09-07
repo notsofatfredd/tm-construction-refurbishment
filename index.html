@@ -1,168 +1,119 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>TM Construction and Refurbishment — Concept Switcher</title>
-<style>
-  :root {
-    --bg: #0e0e10;
-    --bar-bg: #161618;
-    --border: #2a2a2e;
-    --text: #f2f1ee;
-    --text-dim: #9a9a9e;
-    --tab-active-bg: #f2f1ee;
-    --tab-active-text: #0e0e10;
-    --accent: #d9822b;
-  }
-  * { box-sizing: border-box; }
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  }
-  .switcher-bar {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 16px;
-    background: var(--bar-bg);
-    border-bottom: 1px solid var(--border);
-    flex-wrap: wrap;
-  }
-  .switcher-brand {
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.02em;
-    margin-right: auto;
-    white-space: nowrap;
-  }
-  .switcher-brand span {
-    color: var(--accent);
-  }
-  .tabs {
-    display: flex;
-    gap: 6px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 4px;
-  }
-  .tab {
-    appearance: none;
-    border: none;
-    background: transparent;
-    color: var(--text-dim);
-    font-size: 13px;
-    font-weight: 600;
-    padding: 7px 14px;
-    border-radius: 999px;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: background 0.15s ease, color 0.15s ease;
-  }
-  .tab:hover {
-    color: var(--text);
-  }
-  .tab[aria-selected="true"] {
-    background: var(--tab-active-bg);
-    color: var(--tab-active-text);
-  }
-  .tab:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-  .open-link {
-    font-size: 12px;
-    color: var(--text-dim);
-    text-decoration: none;
-    border: 1px solid var(--border);
-    padding: 7px 12px;
-    border-radius: 999px;
-    white-space: nowrap;
-  }
-  .open-link:hover {
-    color: var(--text);
-    border-color: var(--text-dim);
-  }
-  .frame-wrap {
-    position: relative;
-    width: 100%;
-    height: calc(100% - 53px);
-  }
-  iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    background: #fff;
-  }
-  @media (max-width: 640px) {
-    .switcher-bar {
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .switcher-brand {
-      margin-right: 0;
-      text-align: center;
-    }
-    .tabs {
-      justify-content: center;
-    }
-    .open-link {
-      text-align: center;
-    }
-  }
-</style>
-</head>
-<body>
-  <div class="switcher-bar">
-    <div class="switcher-brand">TM Construction <span>&amp;</span> Refurbishment — Concept Switcher</div>
-    <div class="tabs" role="tablist" aria-label="Concept switcher">
-      <button class="tab" id="tab-a" role="tab" aria-selected="true" aria-controls="frame" data-src="concept-a-product-launch.html">A · Product Launch</button>
-      <button class="tab" id="tab-b" role="tab" aria-selected="false" aria-controls="frame" data-src="concept-b-monograph.html">B · Monograph</button>
-      <button class="tab" id="tab-c" role="tab" aria-selected="false" aria-controls="frame" data-src="concept-c-editorial-journal.html">C · Editorial Journal</button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="TM Construction & Refurbishment â€” mobile-first concept proof." />
+    <title>TM Construction & Refurbishment</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="site.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="TM Construction & Refurbishment home">
+        <span class="brand-mark" aria-hidden="true">TM</span>
+        <span class="brand-name">Construction<br />&amp; Refurbishment</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#approach">Approach</a>
+        <a href="#work">Work</a>
+        <a class="nav-cta" href="#enquire">Enquire <span aria-hidden="true">â†—</span></a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+        <span>Menu</span><span class="menu-icon" aria-hidden="true">+</span>
+      </button>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <a href="#approach">Approach</a>
+      <a href="#work">Work</a>
+      <a href="#enquire">Enquire <span aria-hidden="true">â†—</span></a>
     </div>
-    <a class="open-link" id="open-direct" href="concept-a-product-launch.html" target="_blank" rel="noopener">Open full page ↗</a>
-  </div>
-  <div class="frame-wrap">
-    <iframe id="frame" name="frame" src="concept-a-product-launch.html" title="Concept preview"></iframe>
-  </div>
 
-  <script>
-    (function () {
-      var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
-      var frame = document.getElementById('frame');
-      var openLink = document.getElementById('open-direct');
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow solar-text">A considered way forward <span aria-hidden="true">/</span> 01</p>
+          <h1 id="hero-title">Built with<br /><em>intention.</em></h1>
+          <p class="hero-intro">A mobile-first concept for a construction and refurbishment practice. The detail is where the direction begins.</p>
+          <a class="button button-solar" href="#enquire">Start an enquiry <span aria-hidden="true">â†—</span></a>
+        </div>
+        <figure class="image-frame hero-image">
+          <img src="assets/source/hero.webp" alt="Architectural setting shown as provisional visual direction" width="1600" height="1200" fetchpriority="high" />
+          <figcaption class="photo-marker">PHOTO NEEDED â€” SUNLIT MODERN ARCHITECTURE / HERO</figcaption>
+        </figure>
+      </section>
 
-      function activate(tab, updateHash) {
-        tabs.forEach(function (t) {
-          t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
-        });
-        var src = tab.getAttribute('data-src');
-        frame.src = src;
-        openLink.href = src;
-        if (updateHash !== false) {
-          history.replaceState(null, '', '#' + tab.id.replace('tab-', ''));
-        }
-      }
+      <section class="chapter chapter-sky" id="approach" aria-labelledby="approach-title">
+        <div class="chapter-index">02 <span>/</span> Approach</div>
+        <div class="chapter-grid">
+          <h2 id="approach-title">Good spaces<br /><em>hold their ground.</em></h2>
+          <div class="chapter-copy">
+            <p>This concept makes room for clarity: a direct path from first impression to enquiry, with the material character of the work kept in view.</p>
+            <p class="muted-note">Business details, services and contact routing will be added only after verification.</p>
+          </div>
+        </div>
+      </section>
 
-      tabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          activate(tab, true);
-        });
-      });
+      <section class="feature" id="work" aria-labelledby="work-title">
+        <div class="feature-copy">
+          <p class="eyebrow">A visual study <span aria-hidden="true">/</span> 03</p>
+          <h2 id="work-title">The work<br /><em>speaks in layers.</em></h2>
+          <p>Material, structure, light. The image system is designed to be replaced directly when final photography is ready.</p>
+        </div>
+        <figure class="image-frame feature-image">
+          <img src="assets/source/building.webp" alt="Building detail shown as provisional visual direction" width="1200" height="1500" loading="lazy" />
+          <figcaption class="photo-marker">PHOTO NEEDED â€” COMPLETED EXTERIOR / FEATURED PROJECT</figcaption>
+        </figure>
+      </section>
 
-      var initial = (location.hash || '').replace('#', '');
-      var initialTab = tabs.find(function (t) { return t.id === 'tab-' + initial; });
-      if (initialTab) {
-        activate(initialTab, false);
-      }
-    })();
-  </script>
-</body>
+      <section class="gallery-section" aria-labelledby="gallery-title">
+        <div class="gallery-heading">
+          <p class="eyebrow">Material studies <span aria-hidden="true">/</span> 04</p>
+          <h2 id="gallery-title">A closer<br /><em>look.</em></h2>
+          <p>Swipe on mobile or use the controls to move through the visual direction. Nothing essential is hidden here.</p>
+        </div>
+        <div class="gallery-shell">
+          <div class="gallery-controls" aria-label="Gallery controls">
+            <button type="button" class="gallery-button" data-gallery="previous" aria-label="Previous image">â†</button>
+            <span class="gallery-count" aria-live="polite">01 / 04</span>
+            <button type="button" class="gallery-button" data-gallery="next" aria-label="Next image">â†’</button>
+          </div>
+          <div class="gallery-track" tabindex="0">
+            <figure class="gallery-card">
+              <img src="assets/source/stairs.webp" alt="Stair detail shown as provisional visual direction" width="1200" height="1200" loading="lazy" />
+              <figcaption><span>01</span> PHOTO NEEDED â€” STRUCTURAL DETAIL / CRAFTSMANSHIP</figcaption>
+            </figure>
+            <figure class="gallery-card">
+              <img src="assets/source/wallmark.webp" alt="Material detail shown as provisional visual direction" width="1200" height="1200" loading="lazy" />
+              <figcaption><span>02</span> PHOTO NEEDED â€” MATERIAL / CRAFTSMANSHIP</figcaption>
+            </figure>
+            <figure class="gallery-card">
+              <img src="assets/source/palm.webp" alt="Exterior landscape shown as provisional visual direction" width="1200" height="1200" loading="lazy" />
+              <figcaption><span>03</span> PHOTO NEEDED â€” COMPLETED EXTERIOR / LANDSCAPE</figcaption>
+            </figure>
+            <figure class="gallery-card">
+              <img src="assets/source/coast.webp" alt="Coastal context shown as provisional visual direction" width="1200" height="1200" loading="lazy" />
+              <figcaption><span>04</span> PHOTO NEEDED â€” CAPE TOWN CONTEXT / CLOSING IMAGE</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="enquire" id="enquire" aria-labelledby="enquire-title">
+        <p class="eyebrow solar-text">The next line is yours <span aria-hidden="true">/</span> 05</p>
+        <h2 id="enquire-title">Letâ€™s make<br /><em>space for better.</em></h2>
+        <p class="enquire-note">Enquiry routing is currently being confirmed. This concept proves the placement and path without inventing contact details.</p>
+        <span class="button button-disabled" aria-disabled="true">Enquiry route to follow <span aria-hidden="true">â†’</span></span>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>TM Construction &amp; Refurbishment</span>
+      <a href="https://axiel.co.za/" aria-label="Website system by AXIEL, built on ATLAS OS">Website system by <strong>AXIEL / ATLAS OS</strong></a>
+    </footer>
+  </body>
 </html>
+
