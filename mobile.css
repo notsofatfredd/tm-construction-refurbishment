@@ -576,15 +576,23 @@ footer {
 }
 
 .axiel-signature small {
-  margin-bottom: 5px;
+  margin-bottom: 3px;
   font-size: 7px;
   letter-spacing: 0.12em;
 }
 
+.axiel-signature img {
+  width: 54px;
+  height: auto;
+  margin-bottom: 3px;
+  object-fit: contain;
+}
+
 .axiel-signature span {
-  font-size: 8px;
+  font-size: 6px;
   font-weight: 700;
   letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 @media (max-width: 400px) {
