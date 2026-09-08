@@ -1,227 +1,168 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="TM Construction &amp; Refurbishment. Built for a brighter tomorrow.">
-  <title>TM Construction &amp; Refurbishment</title>
-  <link rel="stylesheet" href="mobile.css" media="(max-width: 767px)">
-  <link rel="stylesheet" href="desktop.css" media="(min-width: 768px)">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TM Construction and Refurbishment — Concept Switcher</title>
+<style>
+  :root {
+    --bg: #0e0e10;
+    --bar-bg: #161618;
+    --border: #2a2a2e;
+    --text: #f2f1ee;
+    --text-dim: #9a9a9e;
+    --tab-active-bg: #f2f1ee;
+    --tab-active-text: #0e0e10;
+    --accent: #d9822b;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .switcher-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    background: var(--bar-bg);
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .switcher-brand {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    margin-right: auto;
+    white-space: nowrap;
+  }
+  .switcher-brand span {
+    color: var(--accent);
+  }
+  .tabs {
+    display: flex;
+    gap: 6px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px;
+  }
+  .tab {
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--text-dim);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .tab:hover {
+    color: var(--text);
+  }
+  .tab[aria-selected="true"] {
+    background: var(--tab-active-bg);
+    color: var(--tab-active-text);
+  }
+  .tab:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .open-link {
+    font-size: 12px;
+    color: var(--text-dim);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 7px 12px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .open-link:hover {
+    color: var(--text);
+    border-color: var(--text-dim);
+  }
+  .frame-wrap {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 53px);
+  }
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: #fff;
+  }
+  @media (max-width: 640px) {
+    .switcher-bar {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .switcher-brand {
+      margin-right: 0;
+      text-align: center;
+    }
+    .tabs {
+      justify-content: center;
+    }
+    .open-link {
+      text-align: center;
+    }
+  }
+</style>
 </head>
 <body>
-  <div class="mobile-experience">
-    <a class="skip-link" href="#m-main">Skip to content</a>
-    <div class="mobile-canvas">
-      <header class="site-header" aria-label="Primary navigation">
-        <a class="brand" href="#m-top" aria-label="TM Construction and Refurbishment, back to top">
-          <span class="brand-mark" aria-hidden="true">TM</span>
-          <span class="brand-name">Construction<br>&amp; Refurbishment</span>
-        </a>
-        <nav>
-          <a href="#m-study">Gallery</a>
-          <a href="#m-contact">Vision</a>
-        </nav>
-      </header>
-
-      <main id="m-main">
-        <section class="hero" id="m-top" aria-labelledby="m-hero-title">
-          <div class="hero-kicker">TM Construction &amp; Refurbishment</div>
-          <h1 id="m-hero-title">
-            <span>Built for a</span>
-            <span>brighter</span>
-            <span>tomorrow.</span>
-          </h1>
-          <figure class="hero-image">
-            <img src="assets/real-source/PHOTO-2026-08-18-12-47-26.jpg" width="959" height="1280" alt="Long glazed exterior with a stepped tiled threshold">
-          </figure>
-          <div class="hero-index" aria-hidden="true">01 <span></span> 04</div>
-          <p class="hero-note">Light<br>Line<br>Volume</p>
-        </section>
-
-        <section class="opening" aria-labelledby="m-opening-title">
-          <p class="eyebrow">A considered approach</p>
-          <h2 id="m-opening-title">See the space.<br><em>Then see beyond it.</em></h2>
-          <p class="opening-copy">Existing structure, natural light and material shape the character of a space.</p>
-          <figure class="opening-image">
-            <img src="assets/real-source/PHOTO-2026-08-18-12-41-39.jpg" width="959" height="1280" loading="lazy" alt="Existing white exterior around an open doorway with exposed masonry">
-            <figcaption>Existing exterior<br>Masonry junction</figcaption>
-          </figure>
-          <div class="opening-rule" aria-hidden="true"><span>Form</span><i></i><span>Future</span></div>
-        </section>
-
-        <section class="study" id="m-study" aria-labelledby="m-study-title">
-          <div class="study-heading">
-            <p class="eyebrow">Selected details / 01&mdash;04</p>
-            <h2 id="m-study-title">Details hold<br>the whole.</h2>
-            <p>Swipe to explore.</p>
-          </div>
-          <div class="reel" role="region" aria-label="Image gallery" tabindex="0">
-            <figure class="card card-tall">
-              <img src="assets/real-source/PHOTO-2026-08-18-12-41-37.jpg" width="959" height="1280" loading="lazy" alt="Plastered passage with a high window and sunlight across the floor">
-              <figcaption><b>01</b><span>Plastered passage<br>Window light</span></figcaption>
-            </figure>
-            <figure class="card card-wide">
-              <img src="assets/real-source/PHOTO-2026-08-18-12-47-27.jpg" width="1280" height="959" loading="lazy" alt="Light interior with black-framed windows and a fireplace opening">
-              <figcaption><b>02</b><span>Interior<br>Window and fireplace</span></figcaption>
-            </figure>
-            <figure class="card card-tall">
-              <img src="assets/real-source/PHOTO-2026-08-18-12-41-40.jpg" width="959" height="1280" loading="lazy" alt="Interior with exposed wall sections, white tiles and terracotta floor tiles">
-              <figcaption><b>03</b><span>Exposed wall<br>Tiled surfaces</span></figcaption>
-            </figure>
-            <figure class="card card-wide">
-              <img src="assets/real-source/PHOTO-2026-08-18-12-47-26.jpg" width="959" height="1280" loading="lazy" alt="Reflective glazed exterior above a tiled stair">
-              <figcaption><b>04</b><span>Glazed exterior<br>Line and reflection</span></figcaption>
-            </figure>
-          </div>
-        </section>
-
-        <section class="interlude" aria-label="TM statement">
-          <div class="interlude-number" aria-hidden="true">TM</div>
-          <p>Structure creates<br>the rhythm.</p>
-          <div class="interlude-line" aria-hidden="true"></div>
-        </section>
-
-        <section class="closing" id="m-contact" aria-labelledby="m-closing-title">
-          <figure class="closing-image">
-            <img src="assets/real-source/PHOTO-2026-08-18-12-47-27.jpg" width="1280" height="959" loading="lazy" alt="Bright interior with black-framed windows and a built-in fireplace">
-          </figure>
-          <div class="closing-panel">
-            <p class="eyebrow">TM Construction &amp; Refurbishment</p>
-            <h2 id="m-closing-title">A brighter<br>tomorrow.</h2>
-            <div class="contact-status">
-              <span>Our direction</span>
-              <strong>Start with the space.</strong>
-              <small>Work with what is there. Shape what comes next.</small>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer>
-        <a class="footer-brand" href="#m-top" aria-label="TM Construction and Refurbishment, back to top">
-          <span aria-hidden="true">TM</span>
-          <small>Construction<br>&amp; Refurbishment</small>
-        </a>
-        <a class="axiel-credit" href="https://axiel.co.za/" target="_blank" rel="noopener noreferrer" aria-label="Website system by AXIEL, built on ATLAS OS">
-          <img src="assets/brand/axiel-mark.svg" width="300" height="300" alt="" aria-hidden="true">
-          <span class="axiel-credit-copy">
-            <span class="axiel-credit-label">Website system by</span>
-            <span class="axiel-credit-brand">AXIEL <b>/ ATLAS OS</b></span>
-          </span>
-        </a>
-      </footer>
+  <div class="switcher-bar">
+    <div class="switcher-brand">TM Construction <span>&amp;</span> Refurbishment — Concept Switcher</div>
+    <div class="tabs" role="tablist" aria-label="Concept switcher">
+      <button class="tab" id="tab-a" role="tab" aria-selected="true" aria-controls="frame" data-src="concept-a-product-launch.html">A · Product Launch</button>
+      <button class="tab" id="tab-b" role="tab" aria-selected="false" aria-controls="frame" data-src="concept-b-monograph.html">B · Monograph</button>
+      <button class="tab" id="tab-c" role="tab" aria-selected="false" aria-controls="frame" data-src="concept-c-editorial-journal.html">C · Editorial Journal</button>
     </div>
+    <a class="open-link" id="open-direct" href="concept-a-product-launch.html" target="_blank" rel="noopener">Open full page ↗</a>
+  </div>
+  <div class="frame-wrap">
+    <iframe id="frame" name="frame" src="concept-a-product-launch.html" title="Concept preview"></iframe>
   </div>
 
-  <div class="desktop-experience">
-    <a class="skip-link" href="#d-main">Skip to content</a>
-    <header class="hero" id="d-top">
-      <div class="hero__nav">
-        <a class="identity" href="#d-top" aria-label="TM Construction and Refurbishment, top">
-          <span class="identity__mark">TM</span>
-          <span class="identity__name">Construction<br>&amp; Refurbishment</span>
-        </a>
-        <nav aria-label="Primary navigation">
-          <a href="#d-direction">Approach</a>
-          <a href="#d-study">Gallery</a>
-          <a href="#d-contact">Vision</a>
-        </nav>
-      </div>
-      <div class="hero__copy">
-        <p class="eyebrow">TM Construction &amp; Refurbishment</p>
-        <h1>Built for a<br>brighter<br>tomorrow.</h1>
-        <div class="hero__foot"><span>Light</span><i></i><span>Structure</span><i></i><span>Material</span></div>
-      </div>
-      <figure class="hero__image">
-        <img src="assets/real-source/PHOTO-2026-08-18-12-41-39.jpg" width="959" height="1280" alt="White exterior walls beneath a palm tree and clear blue sky">
-        <figcaption><span>01</span> Exterior structure in daylight</figcaption>
-      </figure>
-    </header>
+  <script>
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+      var frame = document.getElementById('frame');
+      var openLink = document.getElementById('open-direct');
 
-    <main id="d-main">
-      <section class="direction" id="d-direction" aria-labelledby="d-direction-title">
-        <div class="direction__intro">
-          <p class="section-index">Approach</p>
-          <h2 id="d-direction-title">Start with<br>the space.</h2>
-          <p class="body-copy">The existing space sets the starting point for what comes next.</p>
-        </div>
-        <figure class="direction__feature">
-          <img src="assets/real-source/PHOTO-2026-08-18-12-47-27.jpg" width="1280" height="959" loading="lazy" alt="Bright interior with black-framed windows and a built-in fireplace">
-          <figcaption><span>Existing interior</span><strong>Window light across the room</strong></figcaption>
-        </figure>
-      </section>
+      function activate(tab, updateHash) {
+        tabs.forEach(function (t) {
+          t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+        });
+        var src = tab.getAttribute('data-src');
+        frame.src = src;
+        openLink.href = src;
+        if (updateHash !== false) {
+          history.replaceState(null, '', '#' + tab.id.replace('tab-', ''));
+        }
+      }
 
-      <section class="statement" aria-label="TM statement">
-        <p class="section-index">TM Construction &amp; Refurbishment</p>
-        <p class="statement__line">Space, held in balance.</p>
-        <p class="statement__line statement__line--shift">Light, given room.</p>
-      </section>
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          activate(tab, true);
+        });
+      });
 
-      <section class="study" id="d-study" aria-labelledby="d-study-title">
-        <div class="study__heading">
-          <div><p class="section-index">Selected details</p><h2 id="d-study-title">A closer<br>look.</h2></div>
-          <p>Interior<br>Exterior<br>Detail</p>
-        </div>
-        <div class="panels">
-          <figure class="panel panel--wide">
-            <img src="assets/real-source/PHOTO-2026-08-18-12-47-26.jpg" width="959" height="1280" alt="Long glazed exterior elevation with tiled steps">
-            <figcaption><span>01</span><strong>Glazed elevation</strong><small>Reflection / rhythm / line</small></figcaption>
-          </figure>
-          <figure class="panel panel--tall">
-            <img src="assets/real-source/PHOTO-2026-08-18-12-41-37.jpg" width="959" height="1280" alt="Unfinished interior with sunlight casting long window shadows across the floor">
-            <figcaption><span>02</span><strong>Sunlit interior</strong><small>Volume / shadow / opening</small></figcaption>
-          </figure>
-          <figure class="panel panel--detail">
-            <img src="assets/real-source/PHOTO-2026-08-18-12-41-40.jpg" width="959" height="1280" alt="Interior with exposed wall channels, retained white tiles and terracotta floor tiles">
-            <figcaption><span>03</span><strong>Exposed material</strong><small>Surface / edge / trace</small></figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="horizon" aria-labelledby="d-horizon-title">
-        <p class="section-index">Looking ahead</p>
-        <h2 id="d-horizon-title">Attention to what<br>a space already holds.</h2>
-        <div class="horizon__note"><span class="cross" aria-hidden="true"></span><p>Existing form<br>Natural light<br>New purpose</p></div>
-      </section>
-
-      <section class="closing" id="d-contact" aria-label="Closing statement">
-        <div class="closing__navy">
-          <p class="section-index">Our direction</p>
-          <p class="closing__mark">TM</p>
-          <h2>Start with<br>the space.</h2>
-          <div class="contact-status">
-            <span>TM Construction &amp; Refurbishment</span>
-            <strong>Spaces shaped with purpose</strong>
-            <small>Built for a brighter tomorrow.</small>
-          </div>
-        </div>
-        <figure class="closing__image">
-          <img src="assets/real-source/PHOTO-2026-08-18-12-47-27.jpg" width="1280" height="959" alt="Bright interior with black-framed windows and a built-in fireplace">
-          <figcaption>Interior / window / fireplace</figcaption>
-        </figure>
-        <div class="closing__sky">
-          <span class="closing__rule"></span>
-          <p>TM Construction<br>&amp; Refurbishment</p>
-          <h2>Built for a<br>brighter<br>tomorrow.</h2>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <a class="identity identity--footer" href="#d-top" aria-label="TM Construction and Refurbishment, back to top">
-        <span class="identity__mark">TM</span>
-        <span class="identity__name">Construction<br>&amp; Refurbishment</span>
-      </a>
-      <p>TM Construction &amp; Refurbishment</p>
-      <a class="axiel-credit" href="https://axiel.co.za/" target="_blank" rel="noopener noreferrer" aria-label="Website system by AXIEL, built on ATLAS OS">
-        <img src="assets/brand/axiel-mark.svg" width="300" height="300" alt="" aria-hidden="true">
-        <span class="axiel-credit-copy">
-          <span class="axiel-credit-label">Website system by</span>
-          <span class="axiel-credit-brand">AXIEL <b>/ ATLAS OS</b></span>
-        </span>
-      </a>
-    </footer>
-  </div>
+      var initial = (location.hash || '').replace('#', '');
+      var initialTab = tabs.find(function (t) { return t.id === 'tab-' + initial; });
+      if (initialTab) {
+        activate(initialTab, false);
+      }
+    })();
+  </script>
 </body>
 </html>
-
