@@ -601,19 +601,62 @@ footer > p {
   text-transform: uppercase;
 }
 
-.signature {
-  display: flex;
-  flex-direction: column;
+.axiel-credit {
+  display: inline-flex;
+  align-items: center;
   justify-self: end;
-  gap: 3px;
-  text-align: right;
+  gap: 10px;
+  color: rgba(255, 244, 214, 0.62);
   text-decoration: none;
-  opacity: 0.6;
 }
 
-.signature small { font-size: 7px; letter-spacing: 0.12em; }
-.signature img { width: 54px; height: auto; margin-left: auto; object-fit: contain; }
-.signature span { font-size: 6px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.axiel-credit img {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  opacity: 0.78;
+}
+
+.axiel-credit-copy {
+  display: grid;
+  gap: 2px;
+  text-align: left;
+}
+
+.axiel-credit-label {
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: rgba(255, 244, 214, 0.45);
+}
+
+.axiel-credit-brand {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  color: var(--solar);
+}
+
+.axiel-credit-brand b {
+  color: rgba(255, 244, 214, 0.56);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.axiel-credit:hover,
+.axiel-credit:focus-visible {
+  color: var(--solar);
+}
+
+.axiel-credit:hover img,
+.axiel-credit:focus-visible img {
+  opacity: 1;
+}
 .identity--footer .identity__mark { font-size: 30px; }
 .identity--footer .identity__name { font-size: 7px; }
 
