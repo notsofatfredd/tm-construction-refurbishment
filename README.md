@@ -1,11 +1,31 @@
-# TM Construction and Refurbishment — Concept Sites
+# TM Construction & Refurbishment
 
-Three independently-designed website concepts for TM Construction and Refurbishment, each a self-contained HTML file (no build step, real project photography embedded as base64). `index.html` is a tab switcher that loads each concept into an iframe on one page.
+Client-presentation build for TM Construction & Refurbishment.
 
-- **Concept A — Product Launch** (`concept-a-product-launch.html`) — near-monochrome charcoal palette, one amber accent reserved for the "Get a Quote" CTA. Borrows premium spirits-brand restraint.
-- **Concept B — Monograph** (`concept-b-monograph.html`) — true black/white/stone, zero accent color, numbered "Plates." Borrows architecture/fine-art photography book conventions.
-- **Concept C — Editorial Journal** (`concept-c-editorial-journal.html`) — warm paper/terracotta, split editorial-vs-enquire nav, marquee ticker, before/during/after crossfade spotlights. Borrows design-magazine conventions.
+## Current release
 
-All three share the same 10 real refurbishment photos and the same placeholder business details (services, phone, email, address) — swap those before using any concept live.
+- Production entry point: `index.html`
+- Mobile and desktop use deliberately different responsive compositions.
+- Core palette: Solar `#FFF4D6`, Deep Navy `#10233F`, Sky Blue `#7EC8F8`.
+- Photography is limited to real supplied assets.
+- Unverified services, credentials, locations, project outcomes and contact details are intentionally omitted.
+- The AXIEL footer signature uses the approved raster identity asset.
 
-Open `index.html` locally, or serve the folder as a static site (e.g. GitHub Pages) to use the switcher.
+## Planned domain and email
+
+- Selected domain: `tmconstructionrefurb.co.za`
+- Registration status: planned; not yet confirmed active.
+- Planned email suffix: `@tmconstructionrefurb.co.za`
+- Mailbox name: not yet selected.
+
+Do not publish the domain or an email address as active until domain registration, DNS and the actual mailbox have been verified.
+
+## Release files
+
+- `index.html`
+- `mobile.css`
+- `desktop.css`
+- `assets/real-source/`
+- `assets/brand/axiel-logo-approved.jpeg`
+
+The older `concept-*.html` files are historical explorations and are not part of the current presentation entry point.
